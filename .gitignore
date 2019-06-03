@@ -4,3 +4,4 @@
 *.pyc
 __pycache__/
 dataset/mnist.pkl
+.vscode/settings.json
