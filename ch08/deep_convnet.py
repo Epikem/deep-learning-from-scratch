@@ -27,17 +27,17 @@ class DeepConvNet:
         # 가중치 초기화===========
         # 각 층의 뉴런 하나당 앞 층의 몇 개 뉴런과 연결되는가（TODO: 자동 계산되게 바꿀 것）
         pre_node_nums = np.array([1*3*3, 16*3*3, 16*3*3, 32*3*3, 32*3*3, 64*3*3, 64*4*4, hidden_size])
-        wight_init_scales = np.sqrt(2.0 / pre_node_nums)  # ReLU를 사용할 때의 권장 초깃값
+        weight_init_scales = np.sqrt(2.0 / pre_node_nums)  # ReLU를 사용할 때의 권장 초깃값
         
         self.params = {}
         pre_channel_num = input_dim[0]
         for idx, conv_param in enumerate([conv_param_1, conv_param_2, conv_param_3, conv_param_4, conv_param_5, conv_param_6]):
-            self.params['W' + str(idx+1)] = wight_init_scales[idx] * np.random.randn(conv_param['filter_num'], pre_channel_num, conv_param['filter_size'], conv_param['filter_size'])
+            self.params['W' + str(idx+1)] = weight_init_scales[idx] * np.random.randn(conv_param['filter_num'], pre_channel_num, conv_param['filter_size'], conv_param['filter_size'])
             self.params['b' + str(idx+1)] = np.zeros(conv_param['filter_num'])
             pre_channel_num = conv_param['filter_num']
-        self.params['W7'] = wight_init_scales[6] * np.random.randn(64*4*4, hidden_size)
+        self.params['W7'] = weight_init_scales[6] * np.random.randn(64*4*4, hidden_size)
         self.params['b7'] = np.zeros(hidden_size)
-        self.params['W8'] = wight_init_scales[7] * np.random.randn(hidden_size, output_size)
+        self.params['W8'] = weight_init_scales[7] * np.random.randn(hidden_size, output_size)
         self.params['b8'] = np.zeros(output_size)
 
         # 계층 생성===========

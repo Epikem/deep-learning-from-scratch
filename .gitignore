@@ -6,3 +6,4 @@ __pycache__/
 dataset/mnist.pkl
 .vscode/settings.json
 *-checkpoint.ipynb
+mnist.pkl

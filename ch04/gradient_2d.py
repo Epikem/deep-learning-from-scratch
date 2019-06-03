@@ -50,7 +50,8 @@ def tangent_line(f, x):
     print(d)
     y = f(x) - d*x
     return lambda t: d*t + y
-     
+
+
 if __name__ == '__main__':
     x0 = np.arange(-2, 2.5, 0.25)
     x1 = np.arange(-2, 2.5, 0.25)
@@ -58,16 +59,15 @@ if __name__ == '__main__':
     
     X = X.flatten()
     Y = Y.flatten()
-    
-    grad = numerical_gradient(function_2, np.array([X, Y]) )
-    
+
+    grad = numerical_gradient(function_2, np.array([X, Y]).T).T
+
     plt.figure()
-    plt.quiver(X, Y, -grad[0], -grad[1],  angles="xy",color="#666666")#,headwidth=10,scale=40,color="#444444")
+    plt.quiver(X, Y, -grad[0], -grad[1],  angles="xy",color="#666666")
     plt.xlim([-2, 2])
     plt.ylim([-2, 2])
     plt.xlabel('x0')
     plt.ylabel('x1')
     plt.grid()
-    plt.legend()
     plt.draw()
     plt.show()
