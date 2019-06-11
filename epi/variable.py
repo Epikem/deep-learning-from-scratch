@@ -2,8 +2,41 @@ import numpy as np
 import matplotlib.pylab as plt
 import sys
 
-visualizeTarget = sys.argv[1]
-print(visualizeTarget)
+def run():
+    visualizeTarget = sys.argv[1]
+    print(visualizeTarget)
+    
+    if(visualizeTarget=='step'):
+        x=np.arange(-5.0,5.0,0.1)
+        y=step(x)
+        plt.plot(x,y)
+        plt.ylim(-0.1,1.1)
+        plt.show()
+    elif(visualizeTarget=='sigmoid'):
+        x=np.arange(-5.0,5.0,0.1)
+        y=sigmoid(x)
+        plt.plot(x,y)
+        plt.ylim(-0.1,1.1)
+        plt.show()
+    elif(visualizeTarget=='relu'):
+        x=np.arange(-5.0,5.0,0.1)
+        y=relu(x)
+        plt.plot(x,y)
+        # plt.ylim(-0.1,1.1)
+        plt.show()
+    elif(visualizeTarget=='all'):
+        x=np.arange(-5.0,5.0,0.1)
+        y=step(x)
+        plt.plot(x,y)
+        # plt.ylim(-0.1,1.1)
+        x=np.arange(-5.0,5.0,0.1)
+        y=sigmoid(x)
+        plt.plot(x,y)
+        x=np.arange(-5.0,5.0,0.1)
+        y=relu(x)
+        plt.plot(x,y)
+        # plt.ylim(-0.1,3.0)
+        plt.show()
 # for x in sys.argv:
 #     print(x)
 
@@ -145,41 +178,11 @@ def matrixMultiplyTest():
     y = np.dot(x,W)
     print(y)
 
-if(visualizeTarget=='step'):
-    x=np.arange(-5.0,5.0,0.1)
-    y=step(x)
-    plt.plot(x,y)
-    plt.ylim(-0.1,1.1)
-    plt.show()
-elif(visualizeTarget=='sigmoid'):
-    x=np.arange(-5.0,5.0,0.1)
-    y=sigmoid(x)
-    plt.plot(x,y)
-    plt.ylim(-0.1,1.1)
-    plt.show()
-elif(visualizeTarget=='relu'):
-    x=np.arange(-5.0,5.0,0.1)
-    y=relu(x)
-    plt.plot(x,y)
-    # plt.ylim(-0.1,1.1)
-    plt.show()
-elif(visualizeTarget=='all'):
-    x=np.arange(-5.0,5.0,0.1)
-    y=step(x)
-    plt.plot(x,y)
-    # plt.ylim(-0.1,1.1)
-    x=np.arange(-5.0,5.0,0.1)
-    y=sigmoid(x)
-    plt.plot(x,y)
-    x=np.arange(-5.0,5.0,0.1)
-    y=relu(x)
-    plt.plot(x,y)
-    # plt.ylim(-0.1,3.0)
-    plt.show()
 
 if(__name__=='main'):    
-    test()
+    # test()
 
-    TestSimpleANDGate()
-    matrixTest1()
-    matrixMultiplyTest()
+    # TestSimpleANDGate()
+    # matrixTest1()
+    # matrixMultiplyTest()
+    run()
